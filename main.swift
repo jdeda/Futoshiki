@@ -21,9 +21,19 @@ let csp = CSP()
 let final = backtrack(assignment: assignment, csp: csp, filter: filter)
 
 // Print CSP.
+if final.failure {
+  print("WTF")
+}
 final.board.forEach {
     $0.forEach {
         print($0.value, separator: " ", terminator: " ")
+    }
+    print("\n")
+}
+print("\n")
+final.board.forEach {
+    $0.forEach {
+        print($0.domain.count, separator: " ", terminator: " ")
     }
     print("\n")
 }
